@@ -44,8 +44,14 @@ jobs:
         # Executes your custom build.js to generate the static files
         run: node build.js
 
+      - name: Assemble site into dist
+        run: |
+          rsync -a ./ dist/ \
+            --exclude dist --exclude .git --exclude .github --exclude node_modules \
+            --exclude posts --exclude templates --exclude build.js \
+            --exclude 'package*.json' --exclude README.md --exclude .gitignore
+
       - name: Upload artifact
-        # Adjust the path parameter below if your build.js outputs to something other than 'dist' (e.g., 'build' or 'public')
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist' 
