@@ -1,6 +1,6 @@
 ---
-name: hello this is my stupid blog
-date: 09/11/2026
+title: hello this is my stupid blog
+date: 2026-11-09
 ---
 
 ## Hello!
